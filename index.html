@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biosphere — Computational Biology Initiative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.google.com/share?selection.family=Oswald:wght@200..700" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="#">
+      <img  src="images/biosphere-logo.png" alt="Biosphere-logo">
+    </a>
+    <span>BIOSPHERE</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#blog">Blogs</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#blog" onclick="closeMobile()">Blogs</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <h1 class="hero-title">The <em>BIOSPHERE</em></h1>
+    <p class="hero-tagline">Where Biology meets code, and ideas become Impact.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Work With Us</button>
+      <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="nucleotide-bg" id="nucBg"></div>
+    <canvas id="dna-canvas" width="300" height="1000"></canvas>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Science meets<br><em style="color:var(--accent); font-style: normal">Innovation</em></h2>
+      <p class="about-body">At Biosphere, we bring biology and technology together to create meaningful scientific impact. From molecular docking and simulations to bioinformatics workflows and structural design, we provide end-to-end computational solutions for researchers and students alike. We also guide life science students through their academic projects and conduct specialized workshops to build real-world skills in computational biology. Our goal is simple: to turn complex biological data into actionable insights while shaping the next generation of scientists.</p>
+    </div>
+    <div class="about-image-wrap reveal">
+      <div class="about-image-placeholder">
+        <img src="images/about-image.jpg" alt="Bioinformatics work" class="about-image">
+        
+        <div class="about-corner-badge">
+          <strong>EST. 2024</strong>Kerala, India
+        </div>
+      </div>      
+    </div>
+  </div>
+</section>
+
+<!-- REELS -->
+<section id="reels">
+  <div class="reels-head reveal">
+    <div class="section-label">From Our Instagram</div>
+    <h2 class="section-title">Gallery</h2>
+    <p style="color:var(--text-muted);font-size:0.95rem;max-width:500px;margin-top:0.5rem;">
+      A glimpse into what we do - workshops, research and science in action.
+    </p>
+  </div>
+
+  <div class="reels-grid">
+
+    <!-- Reel 1 -->
+    <div class="reel-card" id="reel-1" onclick="togglePlay(1)">
+      <video
+        class="reel-video"
+        id="video-1"
+        src="videos/1.mp4"
+        loop
+        muted
+        playsinline
+        autoplay
+      ></video>
+      <div class="reel-overlay"></div>
+      <div class="reel-play-icon">▶</div>
+      <button class="reel-mute-btn" id="mute-1" onclick="toggleMute(event,1)">🔇</button>
+      <div class="reel-progress" id="progress-1"></div>
+      <div class="reel-info">
+        <div class="reel-handle">@bioinformatics_talks</div>
+        <div class="reel-caption">Behind the scenes of our latest workshop </div>
+      </div>
+    </div>
+
+    <!-- Reel 2 -->
+    <div class="reel-card" id="reel-2" onclick="togglePlay(2)">
+      <video
+        class="reel-video"
+        id="video-2"
+        src="videos/2.mp4"
+        loop
+        muted
+        playsinline
+        autoplay
+      ></video>
+      <div class="reel-overlay"></div>
+      <div class="reel-play-icon">▶</div>
+      <button class="reel-mute-btn" id="mute-2" onclick="toggleMute(event,2)">🔇</button>
+      <div class="reel-progress" id="progress-2"></div>
+      <div class="reel-info">
+        <div class="reel-handle">@bioinformatics_talks</div>
+        <div class="reel-caption">Ramachandra plot explained</div>
+      </div>
+    </div>
+
+    <!-- Reel 3 -->
+    <div class="reel-card" id="reel-3" onclick="togglePlay(3)">
+      <video
+        class="reel-video"
+        id="video-3"
+        src="videos/3.mp4"
+        loop
+        muted
+        playsinline
+        autoplay
+      ></video>
+      <div class="reel-overlay"></div>
+      <div class="reel-play-icon">▶</div>
+      <button class="reel-mute-btn" id="mute-3" onclick="toggleMute(event,3)">🔇</button>
+      <div class="reel-progress" id="progress-3"></div>
+      <div class="reel-info">
+        <div class="reel-handle">@bioinformatics_talks</div>
+        <div class="reel-caption">Free molecular Docking classes</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="reels-ig-badge reveal">
+    <span>Follow us on Instagram for more</span>
+    <a href="https://instagram.com/bioinformatics_talks" target="_blank">@bioinformatics_talks →</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-head reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Services that<br>we provide</h2>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-tile reveal" onclick="openModal('bioinformatics')">
+      <div class="tile-icon">🧬</div>
+      <div class="tile-title">Bioinformatics Analysis</div>
+      <p class="tile-desc">Data Collection, Sequence analysis, annotation, and computational workflows tailored to your specific research needs.</p>
+      <div class="tile-arrow">→</div>
+    </div>
+
+    <div class="service-tile reveal" onclick="openModal('custom')">
+      <div class="tile-icon">⚙️</div>
+      <div class="tile-title">Custom Bioinformatics Solutions</div>
+      <p class="tile-desc">Have a unique requirement? We handle all types of computational biology and bioinformatics projects based on your needs.</p>
+      <div class="tile-arrow">→</div>
+    </div>
+
+    <div class="service-tile reveal" onclick="openModal('student')">
+      <div class="tile-icon">🎓</div>
+      <div class="tile-title">Student Project Support</div>
+      <p class="tile-desc">End-to-end guidance for M.Sc. and life science academic projects — from topic selection to final analysis and presentation.</p>
+      <div class="tile-arrow">→</div>
+    </div>
+
+    <div class="service-tile reveal" onclick="openModal('workshop')">
+      <div class="tile-icon">🧠</div>
+      <div class="tile-title">Workshops & Training</div>
+      <p class="tile-desc">Hands-on sessions on molecular docking, bioinformatics tools, and programming for aspiring computational biologists.</p>
+      <div class="tile-arrow">→</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICE MODAL -->
+<div class="modal-overlay" id="serviceModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-actions">
+      <button class="modal-btn modal-btn-secondary" id="modalMoreBtn">More Details</button>
+      <button class="modal-btn modal-btn-primary" id="modalBookBtn">Book Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="blog-head reveal">
+    <div class="section-label">Insights</div>
+    <h2 class="section-title">Blogs &amp; Insights</h2>
+    <p style="color:var(--text-muted);font-size:0.95rem;max-width:520px;margin-top:0.5rem;">Insights, tutorials, and practical knowledge from the world of computational biology and bioinformatics.</p>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card reveal">
+      <div class="blog-thumb">
+        <img src="images/molecular-docking.jpg" alt="Molecular Docking">
+      </div>
+      <div class="blog-body">
+        <div class="blog-tag">Molecular Docking</div>
+        <div class="blog-title">Introduction to Molecular Docking: A Beginner's Guide</div>
+        <div class="blog-snippet">A simple breakdown of how molecular docking works, tools used, and its role in drug discovery.</div>
+        <a class="blog-link" href="https://www.sciencedirect.com/topics/medicine-and-dentistry/docking-molecular" target="_blank">Read more →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-thumb">
+        <img src="images/dynamics.jpg" alt="Molecular Dynamics Simulation">
+      </div>
+      <div class="blog-body">
+        <div class="blog-tag">Simulations</div>
+        <div class="blog-title">Molecular Dynamics Simulations Explained</div>
+        <div class="blog-snippet">Understand how MD simulations help analyze biomolecular stability and interactions over time.</div>
+        <a class="blog-link" href="https://www.sciencedirect.com/topics/chemistry/molecular-dynamics" targe="_blank">Read more →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-thumb">
+        <img src="images/tools.jpg" alt="Bioinformatics Tools">
+      </div>
+      <div class="blog-body">
+        <div class="blog-tag">Tools</div>
+        <div class="blog-title">Top Bioinformatics Tools Every Student Should Know</div>
+        <div class="blog-snippet">A curated list of essential tools for sequence analysis, modeling, and research workflows.</div>
+        <a class="blog-link" href="https://microbenotes.com/bioinformatics-databases-software-tools/" target="_blank">Read more →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-thumb">
+        <img src="images/primer.jpg" alt="Primer designing">
+      </div>
+      <div class="blog-body">
+        <div class="blog-tag">PCR &amp; Primers</div>
+        <div class="blog-title">How to Design Effective Primers for PCR</div>
+        <div class="blog-snippet">Key principles, tools, and common mistakes to avoid in primer designing.</div>
+        <a class="blog-link" href="https://www.addgene.org/protocols/primer-design/" target="_blank">Read more →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-thumb">
+        <img src="images/project.jpg" alt="B.Sc / M.Sc Project">
+      </div>
+      <div class="blog-body">
+        <div class="blog-tag">Students</div>
+        <div class="blog-title">How to Choose and Complete Your B.Sc or M.Sc. Bioinformatics Project</div>
+        <div class="blog-snippet">A practical guide for students to plan, execute, and present their academic projects.</div>
+        <a class="blog-link" href="https://www.coursera.org/in/articles/final-year-project" target="_blank">Read more →</a>
+      </div>
+    </div>
+    <div class="blog-card reveal">
+      <div class="blog-thumb">
+        <img src="images/application.jpg" alt="real world application">
+      </div>
+      <div class="blog-body">
+        <div class="blog-tag">Applications</div>
+        <div class="blog-title">Real-World Applications of Computational Biology</div>
+        <div class="blog-snippet">Explore how computational techniques are used in drug discovery, genetics, and research.</div>
+        <a class="blog-link" href="https://bioinformaticshome.com/learn/tutorials/getting-started/bioinformatics-applications" target="_blank">Read more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-head reveal">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What people<br>are saying</h2>
+    <p style="color:var(--text-muted);font-size:0.95rem;max-width:500px;margin-top:0.5rem;">What students and researchers say about working with Biosphere.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"The 7-day Online CADD Workshop was very informative and well structured. The sessions were clearly explained by both teachers, starting from the basic level and progressing to more complex topics. I initially had no idea about docking sessions, but after attending the workshop, I am now able to understand and follow docking concepts far better. Overall, it was a valuable and worth experience. And I express my sincere thanks to the whole Biosphere Company for providing this session in such a successful way. 😊"</p>
+      <div class="review-author">— Workshop participant, Kerala</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"The classes organised were truly appreciable. All the concepts were explained clearly, from the basics to advanced bioinformatics tools. There was no room for doubts, and the additional presentations prepared were very helpful. It was truly worth being a part of this learning process, and I hope I will be able to apply what I learned in my future work."</p>
+      <div class="review-author">— M.Sc Life science student</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"It was a really informative worshop each and every classes was really good. I personally felt like the instructors are really thorough with the topics and had a clear idea about each and every topics. A small suggestion from my side is that I hope it will be really good if the classes are taken in live mode along with the recorded sessions. That’s allWishing you all the very best for your future workshops♥️"</p>
+      <div class="review-author">— Research Student</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's work<br>together</h2>
+      <p>Have a project, question, or collaboration idea? Drop us a message and we'll get back to you shortly.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📩</div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=thebiospherecompany@gmail.com" target="_blank">
+          thebiospherecompany@gmail.com
+        </a>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🅾</div>
+        <a href="https://instagram.com/bioinformatics_talks" target="_blank">
+          @bioinformatics_talks
+        </a>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">➤</div>
+        Kerala, India
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        Response within 24 hours
+      </div>
+    </div>
+      <div class="contact-form reveal">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input class="form-control" type="text" id="name">
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" type="email" id="email">
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <input class="form-control" type="text" id="subject">
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-control" id="message"></textarea>
+        </div>
+
+        <!-- SUCCESS MESSAGE -->
+        <div id="form-success" style="display:none; color:green;">
+          ✅ Message sent!
+        </div>
+
+        <!-- ERROR MESSAGE -->
+        <div id="form-error" style="display:none; color:red;">
+          ❌ Something went wrong.
+        </div>
+
+        <button class="form-submit" id="submitBtn" onclick="handleSubmit()">
+          Send Message →
+        </button>
+      </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Biosphere</div>
+  <p style="margin-bottom:0.4rem;">Where Biology meets code, and ideas become Impact.</p>
+  <p>© 2024 Biosphere Computational Biology Initiative. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
